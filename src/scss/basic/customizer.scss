@@ -1,0 +1,15 @@
+.default-colors {
+	.custom-background {
+		background-color: $default-bg;
+	}
+
+	.custom-border-color-primary {
+		border-color: $default-color-primary;
+
+		&.active,
+		&:hover {
+			background-color: $default-color-primary;
+			color: #fff;
+		}
+	}
+}

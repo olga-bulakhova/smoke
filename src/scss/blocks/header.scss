@@ -1,0 +1,61 @@
+.header {
+	padding: 12px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+	transition: top 0.3s ease-in-out;
+	//background-color: $default-bg;
+
+	&.nav-up {
+		top: -72px;
+	}
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.navbar-nav,
+	.heder-action {
+		list-style: none;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.menu-item {
+		@include font-style(16px, 16px, 400);
+		margin-right: 40px;
+		color: $color-dark-text;
+	}
+
+	.lang-item {
+		list-style-type: none;
+		display: inline-block;
+		margin: 0 5px;
+	}
+
+	.header-burger {
+		height: 32px;
+		width: 32px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image: url(../../img/burger.svg);
+		display: none;
+	}
+
+	@media (max-width: $menu-point) {
+		.header-burger {
+			display: block;
+		}
+
+		.heder-action {
+			.navbar-nav {
+				display: none;
+			}
+		}
+	}
+}

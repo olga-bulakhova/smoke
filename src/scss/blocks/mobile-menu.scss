@@ -1,0 +1,45 @@
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(36, 38, 28, 0.6);
+	z-index: 70;
+	.navbar-nav {
+		list-style: none;
+		margin-bottom: 24px;
+
+		li:not(:last-child) {
+			margin-bottom: 32px;
+		}
+
+		a {
+			@include font-style(16px, 16px, 700);
+			color: $color-dark-text;
+		}
+	}
+}
+
+.mobile-menu-content {
+	padding: 12px 15px;
+}
+
+.mobile-menu-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.mobile-menu-body {
+	text-align: center;
+}
+
+.mobile-menu-close {
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(../../img/cross.svg);
+}
