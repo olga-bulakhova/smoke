@@ -1,41 +1,34 @@
-<?php
+<?php get_header(); ?>
 
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package smoke
- */
+<article class="post-single">
+	<div class="wrapper">
+		<div class="breadcrumbs">
+			<a class="home-page-link" href="/"></a>
+			<span>/</span>
+			<a href="<?php echo get_permalink(get_option('page_for_posts')) ?>">Блог</a>
+			<span>/</span>
+			<span><?php the_title() ?></span>
+		</div>
 
-get_header();
-?>
+		<h1 class="color-dark title-48-600 center-mobile mt-4-mobile post-title"><?php the_title(); ?></h1>
 
-<main id="primary" class="site-main">
 
-	<?php
-	while (have_posts()) :
-		the_post();
+		<div class="post-info">
+			<span><?php the_time('j F Y'); ?></span> ,
+			<span class="post-category"><?php the_category(', '); ?></span>
+		</div>
 
-		get_template_part('template-parts/content', get_post_type());
+		<?php if (has_post_thumbnail()) : ?>
+			<div class="post-image mb-9">
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="border-radius">
+			</div>
+		<?php endif; ?>
 
-		the_post_navigation(
-			array(
-				'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'smoke') . '</span> <span class="nav-title">%title</span>',
-				'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'smoke') . '</span> <span class="nav-title">%title</span>',
-			)
-		);
+		<div class="post-content">
+			<?php the_content(); ?>
+		</div>
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		// if (comments_open() || get_comments_number()) :
-		// 	comments_template();
-		// endif;
+	</div>
+</article>
 
-	endwhile; // End of the loop.
-	?>
-
-</main><!-- #main -->
-
-<?php
-//get_sidebar();
-get_footer();
+<?php get_footer(); ?>

@@ -17,27 +17,29 @@
 	?>
 
 	<div class="container default-colors">
-		<header class="header custom-background">
-			<div class="wrapper">
-				<div class="header-logo color-primary">
-					<?php the_custom_logo(); ?>
-				</div>
+		<header class="header">
+			<div class="custom-background">
+				<div class="wrapper">
+					<div class="header-logo color-primary">
+						<?php the_custom_logo(); ?>
+					</div>
 
-				<div class="heder-action">
-					<?php
-					wp_nav_menu([
-						'theme_location'  => 'header',
-						'container'       => false,
-						'menu_class'      => 'navbar-nav',
-						'menu_id'         => false,
-						'echo'            => true,
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-						'depth'           => 0,
-					]);
-					?>
-				</div>
+					<div class="heder-action">
+						<?php
+						wp_nav_menu([
+							'theme_location'  => 'header',
+							'container'       => false,
+							'menu_class'      => 'navbar-nav',
+							'menu_id'         => false,
+							'echo'            => true,
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 0,
+						]);
+						?>
+					</div>
 
-				<div class="header-burger toggle-menu"></div>
+					<div class="header-burger toggle-menu"></div>
+				</div>
 			</div>
 		</header>
 

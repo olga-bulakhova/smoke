@@ -1,51 +1,56 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package smoke
- */
-
-get_header();
+<?php get_header();
+$category = get_queried_object();
 ?>
 
-	<main id="primary" class="site-main">
+<div class="wrapper">
+	<div class="breadcrumbs">
+		<a class="home-page-link" href="/"></a>
+		<span>/</span>
+		<a href="<?php echo get_permalink(get_option('page_for_posts')) ?>">Блог</a>
+		<span>/</span>
+		<span><?php echo $category->name ?></span>
+	</div>
 
-		<?php if ( have_posts() ) : ?>
+	<!--<h1 class="color-dark title-48-600 mt-4-mobile center-mobile">Блог</h1> -->
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+	<?php get_template_part('template-parts/blog/categories'); ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+	<div class="mb-18 mb-6-mobile">
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+		<?php
+		global $post;
 
-			endwhile;
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$default_posts_per_page = get_option('posts_per_page');
 
-			the_posts_navigation();
+		$query = new WP_Query([
+			'posts_per_page' => $default_posts_per_page,
+			'paged' => $paged,
+			'orderby' => 'date',
+			'order' => 'DESC',
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'cat' => $category->term_id
+		]);
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
 		?>
 
-	</main><!-- #main -->
+		<?php if ($query->have_posts()) : ?>
+			<div class="posts-list">
+				<?php while ($query->have_posts()) {
+					$query->the_post();
+					get_template_part('template-parts/blog/post');
+				}
+				?>
+			</div>
 
-<?php
-get_sidebar();
-get_footer();
+			<div class="pagination center">
+				<?php my_pagenavi(); ?>
+			</div>
+
+		<?php
+			wp_reset_postdata();
+		endif; ?>
+	</div>
+</div>
+<?php get_footer(); ?>

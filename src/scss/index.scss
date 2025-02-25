@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import 'variables';
 
 @import 'basic/typography';
+@import 'basic/margins';
 @import 'basic/main';
 @import 'basic/customizer';
 
 @import 'blocks/header';
 @import 'blocks/mobile-menu';
+@import 'blocks/footer';
 
 @import 'blog/categories';
 @import 'blog/posts-list';
 @import 'blog/pagination';
 @import 'blog/post-single';
+@import 'blog/post-single';
+
+@import 'elements/breadcrumbs';
