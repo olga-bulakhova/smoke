@@ -8,3 +8,7 @@ Author: Smoke
 body {
 	background-color: red;
 }
+
+.test {
+	width: 100px;
+}
