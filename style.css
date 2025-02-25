@@ -11,3 +11,7 @@ Author: Smoke
 body {
 	background-color: red;
 }
+
+.span {
+	width: 40px;
+}
