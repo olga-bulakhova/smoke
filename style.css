@@ -4,3 +4,7 @@ Theme URI:?
 Author URI: ?
 Author: Smoke
 */
+
+body {
+	background-color: red;
+}
