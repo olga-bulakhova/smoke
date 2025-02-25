@@ -1,15 +1,13 @@
-<?php /* Template Name: Blog */ ?>
-
-
 <?php get_header(); ?>
 
 <div class="wrapper">
-	<!-- <div class="breadcrumbs">
+	<div class="breadcrumbs">
 		<a class="home-page-link" href="/"></a>
 		<span>/</span>
 		<span>Блог</span>
 	</div>
-	<h1 class="color-dark title-48-600 mt-4-mobile center-mobile">Блог</h1> -->
+	<!-- <h1 class="color-dark title-48-600 mt-4-mobile center-mobile">Блог</h1> -->
+
 
 	<?php get_template_part('template-parts/blog/categories'); ?>
 

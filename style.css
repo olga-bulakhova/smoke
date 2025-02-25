@@ -5,10 +5,16 @@ Author URI: ?
 Author: Smoke
 */
 
+.container {
+	background-color: green;
+}
 body {
 	background-color: red;
 }
 
 .test {
 	width: 100px;
+}
+.span {
+	width: 40px;
 }

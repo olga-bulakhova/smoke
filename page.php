@@ -1,38 +1,34 @@
-<?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package smoke
- */
+<?php get_header(); ?>
 
-get_header();
+<?php
+while (have_posts()) :
+	the_post(); ?>
+
+
+
+	<article class="post-single">
+		<div class="wrapper">
+			<h1 class="color-dark title-48-600 center-mobile mt-5_6 mt-4-mobile center"><?php the_title(); ?></h1>
+
+			<?php if (has_post_thumbnail()) : ?>
+				<div class="post-image mb-9">
+					<img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="border-radius">
+				</div>
+			<?php endif; ?>
+
+			<div class="post-content">
+				<?php the_content(); ?>
+			</div>
+
+		</div>
+	</article>
+
+
+<?php endwhile; // End of the loop.
 ?>
 
-	<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>

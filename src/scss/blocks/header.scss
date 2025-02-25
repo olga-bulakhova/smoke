@@ -1,12 +1,19 @@
 .header {
-	padding: 12px 0;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 15;
 	transition: top 0.3s ease-in-out;
-	//background-color: $default-bg;
+	background-color: #fff;
+	//border-color: #eaeaea;
+	//border-style: solid;
+	//border-width: 0 0 1px 0;
+	background-color: #fff;
+
+	> div {
+		padding: 8px 0;
+	}
 
 	&.nav-up {
 		top: -72px;
